@@ -17,6 +17,7 @@ import retrofit2.Callback
 import retrofit2.Response
 
 
+@Suppress("DEPRECATION")
 class MainActivity : AppCompatActivity() {
 
     var fromCurrencyCode: String = ""
@@ -42,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getValidData(): Boolean {
-        var isValid = false;
+        var isValid = false
         val amountString = amountValue.text.toString()
 
         if (fromCurrencyCode.equals(toCurrencyCode)) {
@@ -116,7 +117,7 @@ class MainActivity : AppCompatActivity() {
                         "$fromCurrencyRate | $toCurrencyRate",
                         Toast.LENGTH_SHORT
                     ).show()
-                    convertCurrency(fromCurrencyRate, toCurrencyRate);
+                    convertCurrency(fromCurrencyRate, toCurrencyRate)
                 }
             }
 
@@ -131,7 +132,7 @@ class MainActivity : AppCompatActivity() {
 
         mDialog?.dismiss()
 
-        var intent = Intent(this, ResultActivity::class.java)
+        val intent = Intent(this, ResultActivity::class.java)
         intent.putExtra("FROM", "$fromCurrencyCode $amount")
         intent.putExtra("TO", "$toCurrencyCode $resultAmount")
         startActivity(intent)

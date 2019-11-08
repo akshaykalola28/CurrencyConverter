@@ -1,6 +1,7 @@
 package com.finalyearproject.currencyconverter
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import android.os.Build
@@ -17,10 +18,11 @@ import java.io.FileOutputStream
 import java.util.*
 
 
+@Suppress("DEPRECATION")
 class ResultActivity : AppCompatActivity() {
 
     //Define for making Home Button
-    var isButtonForHome = false
+    private var isButtonForHome = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,7 @@ class ResultActivity : AppCompatActivity() {
         fromAmount.text = intent.getStringExtra("FROM")
         toAmount.text = intent.getStringExtra("TO")
 
-        initPermission();
+        initPermission()
 
         takeImageLayout.setOnClickListener {
             takeScreenshot()
@@ -51,17 +53,17 @@ class ResultActivity : AppCompatActivity() {
             if (checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 == PackageManager.PERMISSION_GRANTED
             ) {
-                Log.d(TAG, "Permission is granted");
+                Log.d(TAG, "Permission is granted")
             } else {
-                Log.v(TAG, "Permission is revoked");
+                Log.v(TAG, "Permission is revoked")
                 ActivityCompat.requestPermissions(
                     this,
                     arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
                     1
-                );
+                )
             }
         } else {
-            Log.v(TAG, "Permission is granted");
+            Log.v(TAG, "Permission is granted")
         }
     }
 
@@ -99,6 +101,7 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 
+    @SuppressLint("SetTextI18n")
     private fun setLayout(bitmap: Bitmap) {
         screenshotImage.visibility = View.VISIBLE
         screenshotImage.setImageBitmap(bitmap)
