@@ -28,6 +28,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <Spinner
+                android:id="@+id/fromSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -47,6 +48,7 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Small" />
 
             <Spinner
+                android:id="@+id/toSpinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </LinearLayout>
@@ -69,6 +71,7 @@
             android:textAppearance="@style/TextAppearance.AppCompat.Large" />
 
         <EditText
+            android:id="@+id/amountValue"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,11 +79,11 @@
     </LinearLayout>
 
     <Button
+        android:id="@+id/checkNowButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_margin="20dp"
         android:backgroundTint="@color/colorAccent"
         android:text="Check Now" />
-
 </RelativeLayout>
